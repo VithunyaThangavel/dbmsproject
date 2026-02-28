@@ -1,0 +1,284 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ===== HEADER / NAVBAR ===== */
+header {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 22px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== PAGE HEADINGS ===== */
+h2 {
+  text-align: center;
+  margin: 30px 0 15px;
+  color: #222;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  margin: 30px auto;
+  width: 80%;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.hero h2 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.hero p {
+  color: #555;
+}
+
+/* ===== CARD (Jobs + Applicants) ===== */
+.card {
+  background: white;
+  width: 520px;
+  margin: 20px auto;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #007bff;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #555;
+  margin: 6px 0;
+}
+
+/* ===== FORM ===== */
+form {
+  background: white;
+  width: 420px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* ===== BUTTON ===== */
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* ===== STATUS COLORS ===== */
+.status-open {
+  color: green;
+  font-weight: bold;
+}
+
+.status-closed {
+  color: red;
+  font-weight: bold;
+}
+
+/* ===== ADMIN BUTTON COLORS ===== */
+button:nth-child(1) {
+  background: #28a745;
+}
+
+button:nth-child(2) {
+  background: #dc3545;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .card,
+  form,
+  .hero {
+    width: 92%;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 8px;
+  }
+}/* ===== ADMIN LAYOUT ===== */
+
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 🔷 SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: #1e293b;
+  color: white;
+  padding: 25px 15px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar li:hover {
+  background: #334155;
+}
+
+.sidebar .active {
+  background: #007bff;
+}
+
+/* 🔷 MAIN CONTENT */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: #f4f7fb;
+}/* ===== ADMIN LAYOUT ===== */
+
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 🔷 SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: #1e293b;
+  color: white;
+  padding: 25px 15px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar li:hover {
+  background: #334155;
+}
+
+.sidebar .active {
+  background: #007bff;
+}
+
+/* 🔷 MAIN CONTENT */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: #f4f7fb;
+}
+
+/* ===== DASHBOARD CARDS ===== */
+
+.stats-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  width: 180px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.stat-card h3 {
+  font-size: 28px;
+  color: #007bff;
+}

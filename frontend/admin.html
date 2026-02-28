@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="admin-container">
+
+  <!-- 🔵 SIDEBAR -->
+  <aside class="sidebar">
+    <h2>⚙️ Admin</h2>
+    <ul>
+      <li class="active" onclick="showSection('applicants')">📋 Applicants</li>
+      <li onclick="showSection('dashboard')">📊 Dashboard</li>
+      <li onclick="goJobs()">💼 Jobs</li>
+      <li onclick="logout()">🚪 Logout</li>
+    </ul>
+  </aside>
+
+  <!-- 🔵 MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- 🔷 DASHBOARD -->
+    <div id="dashboardSection" style="display:none;">
+      <h2>📊 Dashboard</h2>
+
+      <div class="stats-container">
+        <div class="stat-card">
+          <h3 id="totalApplicants">0</h3>
+          <p>Total Applicants</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="shortlistedCount">0</h3>
+          <p>Shortlisted</p>
+        </div>
+
+        <div class="stat-card">
+          <h3 id="rejectedCount">0</h3>
+          <p>Rejected</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔷 APPLICANTS -->
+    <div id="applicantsSection">
+
+      <h2>📋 Applicant Management</h2>
+
+      <!-- ✅ SEARCH BAR (TOP RIGHT) -->
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="🔍 Search applicants..."
+          onkeyup="searchApplicants()"
+        >
+      </div>
+
+      <!-- ✅ APPLICANTS LIST -->
+      <div id="applicantList"></div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

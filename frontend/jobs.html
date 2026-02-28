@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Listings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      padding: 40px;
+      color: #333;
+    }
+
+    /* TITLE */
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #0f172a;
+    }
+
+    /* JOB LIST */
+    #jobList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    /* CARD */
+    .job-card {
+      background: white;
+      width: 300px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .job-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .job-card h3 {
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .company {
+      font-weight: 600;
+      color: #3b82f6;
+      margin-bottom: 8px;
+    }
+
+    .location {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .apply-btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .apply-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Available Jobs</h2>
+
+<!-- ✅ Dynamic jobs will come here -->
+<div id="jobList"></div>
+
+<script>
+const API_URL = "http://localhost:5000/api";
+function applyJob(jobId) {
+  window.location.href = `apply.html?jobId=${jobId}`;
+}
+
+// 🔥 Load jobs
+async function loadJobs() {
+  try {
+    const res = await fetch(`${API_URL}/jobs`);
+    const jobs = await res.json();
+
+    const jobList = document.getElementById("jobList");
+    jobList.innerHTML = "";
+
+    if (!jobs.length) {
+      jobList.innerHTML = "<p>No jobs available</p>";
+      return;
+    }
+
+    jobs.forEach(job => {
+      const div = document.createElement("div");
+      div.className = "job-card";
+
+      div.innerHTML = `
+        <h3>${job.title}</h3>
+        <div class="company">${job.company}</div>
+        <div class="location">${job.location}</div>
+        <button class="apply-btn" onclick="applyJob('${job._id}')">
+          Apply
+        </button>
+      `;
+
+      jobList.appendChild(div);
+    });
+
+  } catch (err) {
+    console.log("Error loading jobs:", err);
+    document.getElementById("jobList").innerHTML =
+      "<p style='color:red'>Error loading jobs</p>";
+  }
+}
+
+// 🚀 Redirect to apply page
+function applyJob(jobId) {
+  window.location.href = `apply.html?jobId=${jobId}`;
+}
+
+// ✅ Auto run
+loadJobs();
+</script>
+
+</body>
+</html>
